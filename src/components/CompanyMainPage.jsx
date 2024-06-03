@@ -48,23 +48,41 @@ const CompanyMainPage = () => {
         
     // }
 
+  
+
+    
+    const [imgSrc, setImgSrc] = useState('');
+
+    useEffect(() => {
+        fetch(`data:image/png;base64,${companyInfo.qrLink}`)
+        .then(res => res.blob())
+        .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            setImgSrc(blobUrl);
+        });
+    }, [companyInfo.qrLink]);
+
+
   return (
     
     <div className='container'>
        
         <h2 className='text-center'>CompanyInfo</h2>
         <div>
-            
-                <p>
-                    {companyInfo.id}
-                    {companyInfo.companyName}
-                    {companyInfo.description}
-                    {companyInfo.email}
-                    {companyInfo.phone}
-                   
-                    <QrCodeImage qrCodeBase64={companyInfo.qrLink} />
-                </p>
-            
+        
+                    {/* {companyInfo.id} */}
+            <h3>{companyInfo.companyName}</h3>     
+            <p>Описание: {companyInfo.description}</p>
+            <p> Контакты: {companyInfo.email} +{companyInfo.phone}</p>      
+        </div>
+        <div className='row row-cols-1'>
+            <div>
+                <QrCodeImage qrCodeBase64={companyInfo.qrLink} /> 
+            </div>
+            <a href={imgSrc} download='QR-код Компании.png'>
+                <button className='btn btn-info'>Скачать QR</button>
+            </a>
+
         </div>
     </div>
   )

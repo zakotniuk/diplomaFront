@@ -10,6 +10,8 @@ import QrCodeImage from './components/QrComponent';
 import CompanyMainPage from './components/CompanyMainPage';
 import CompanyClientAccountsList from './components/CompanyClientAccountsList';
 import CompanyGroupsList from './components/CompanyGroupsList.jsx';
+import CompanyTransactionsList from './components/CompanyTransactionsList.jsx';
+import ClientMainPage from './components/clients/ClientMainPage.jsx';
 
 function App() {
   
@@ -32,13 +34,15 @@ function App() {
             {/* // http://localhost:3000/edit-employee */}
             <Route path='/edit-employee/:id' element={<EmployeeComponent/>}></Route>
             
-            {/* // добавляю сюда все страницы с их наполнением, затем добавлю роутинг и модалки  */}
+            {/* // добавляю сюда все страницы компании с их наполнением, затем добавлю роутинг и модалки  */}
             <Route path='company/:id/info' element= {<CompanyMainPage/>}></Route>
             <Route path='company/:id/all-client-accounts' element= {<CompanyClientAccountsList/>}></Route>
             <Route path='company/:id/all-groups' element= {<CompanyGroupsList/>}></Route>
+            <Route path='company/:id/transactions' element= {<CompanyTransactionsList/>}></Route>
             
           
-            {/* // http://localhost:3000/edit-employee */}
+            {/* // добавляю сюда все страницы клиента с их наполнением, затем добавлю роутинг и модалки   */}
+            <Route path='client/:id/info' element= {<ClientMainPage/>}></Route>
             
             
             
