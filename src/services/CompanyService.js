@@ -17,6 +17,8 @@ export const getCompanyGroupsList = (companyId) => axios.get(REST_API_BASE_URL +
 
 export const createGroup = (companyId, group) => axios.post(REST_API_BASE_URL + '/' + companyId + '/new-group', group);
 
+export const updateGroup = (companyId, groupId, group) => axios.patch(REST_API_BASE_URL + '/' + companyId + '/group/' + groupId, group);
+
 export const getCompanyTransactionsList = (companyId) => axios.get(REST_API_BASE_URL + '/' + companyId + '/transactions');
 
 //export const updateEmployee = (employeeId, employee) => axios.put(REST_API_BASE_URL + '/' +employeeId, employee);
