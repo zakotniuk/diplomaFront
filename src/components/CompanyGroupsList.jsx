@@ -155,6 +155,7 @@ const CompanyGroupsList = () => {
     <div className='container'>
         <div>
             <h2 className='text-center'>Список групп по компании {id}</h2>
+            <h5 className='text-center'>Правила начисления баллов:</h5>
         
             <div>
                 <table className='table table-striped table-bordered '>

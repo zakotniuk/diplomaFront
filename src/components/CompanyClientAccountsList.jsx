@@ -64,10 +64,10 @@ const CompanyClientAccountsList = () => {
                         accounts.map(accounts => 
                             <tr key={accounts.id}>
                                 <td>{accounts.id}</td>
-                                <td>{accounts.groupId}</td>
-                                <td>{accounts.clientId}</td>
+                                <td>{accounts.name}</td>
+                                <td>{accounts.client_id}</td>
                                 <td>{accounts.balance}</td>
-                                <td>{accounts.totalMoneySpend}</td>
+                                <td>{accounts.total_money}</td>
                                 
 
                                 
