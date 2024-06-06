@@ -24,3 +24,21 @@ export const getCompanyTransactionsList = (companyId) => axios.get(REST_API_BASE
 //export const updateEmployee = (employeeId, employee) => axios.put(REST_API_BASE_URL + '/' +employeeId, employee);
 
 export const deleteGroup = (companyId, groupId) => axios.delete(REST_API_BASE_URL + '/' + companyId + '/group/' + groupId);
+
+
+//for cassa
+export const getAccountInfo = (companyId, accountId, sum) => axios.get(REST_API_BASE_URL + '/' + companyId + '/client-account-info/' + accountId +'?sum='+ sum);
+
+export const patchAccountInfoAction = 
+    (companyId, accountId, sum, action) => {
+    const now = Date.now();
+    const date = new Date(now);
+    const updateDate = date.toISOString();
+
+    return axios.patch(
+            REST_API_BASE_URL + '/' + companyId + '/client-account-info/' + accountId +'?sum='+ sum + '&action=' + action,
+            {
+                updateDate: updateDate
+            }
+        );
+    };

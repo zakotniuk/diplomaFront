@@ -26,31 +26,7 @@ const CompanyMainPage = () => {
         }
     }, [id])
 
-    // function addNewEmployee (){
-    //     navigator('/add-employee')
-    // }
-
-    // function updateEmployee (id){
-    //     navigator(`/edit-employee/${id}`)
-    // }
-
-    // function removeEmployee (id){
-    //     if (confirm()){
-    //         console.log(id);
-    //         deleteEmployee(id).then((response) => {
-    //             getAllEmployees();
-    //         }).catch(error => {
-    //             console.error(error);
-    //         })
-
-    //     }
-        
-        
-    // }
-
-  
-
-    
+ 
     const [imgSrc, setImgSrc] = useState('');
 
     useEffect(() => {
@@ -65,9 +41,9 @@ const CompanyMainPage = () => {
 
   return (
     
-    <div className='container'>
+    <div className='container col-8 '>
        
-        <h2 className='text-center'>CompanyInfo</h2>
+        <h2 className='text-center'>Информация о компании</h2>
         <div>
         
                     {/* {companyInfo.id} */}
@@ -76,12 +52,31 @@ const CompanyMainPage = () => {
             <p> Контакты: {companyInfo.email} +{companyInfo.phone}</p>      
         </div>
         <div className='row row-cols-1'>
+            <h3>QR-код для регистрации клиентов</h3>  
+            Разместите QR-код возле кассы, столиков, на входе в заведение.
             <div>
                 <QrCodeImage qrCodeBase64={companyInfo.qrLink} /> 
             </div>
             <a href={imgSrc} download='QR-код Компании.png'>
                 <button className='btn btn-info'>Скачать QR</button>
             </a>
+
+        </div>
+        <div className='row row-cols-1'>
+            
+            <h5 className='mt-5'>Документация для подключения КУ</h5>
+            <img src="" alt="DOCX" />
+            <a href={''} download='Документация.docx'>
+                <button className='btn btn-info'>Скачать Документацию</button>
+            </a>
+            <ul>Возможности интеграции
+                <li>просмотр информации о счете клиента</li>
+                <li>списание и начисление баллов по QR-коду</li>
+            </ul>
+           
+            
+
+
 
         </div>
     </div>
